@@ -29,7 +29,9 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x0008000 --ramdisk_offset 0x2000000
 LZMA_RAMDISK_TARGETS := recovery
 TARGET_KERNEL_SOURCE := kernel/lge/g3
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
 TARGET_KERNEL_CONFIG := d852_defconfig
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 TARGET_REQUIRES_BUMP := true
 
 # Partitions
