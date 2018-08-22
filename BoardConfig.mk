@@ -1,6 +1,6 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,24 +15,28 @@
 # limitations under the License.
 #
 
-# inherit from common g3
+# Inherit from lge g3-common
 -include device/lge/g3-common/BoardConfigCommon.mk
+
+DEVICE_PATH := device/lge/d852
 
 TARGET_OTA_ASSERT_DEVICE := g3,d852
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/d852/bluetooth
-
-# Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
 # Kernel
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
 TARGET_KERNEL_CONFIG := lineageos_d852_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 TARGET_REQUIRES_BUMP := true
+TARGET_EXFAT_DRIVER := sdfat
+
+# NFC
+BOARD_NFC_CHIPSET := pn547
+BOARD_NFC_HAL_SUFFIX := msm8974
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
@@ -43,16 +47,12 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 27325360128
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/lge/d852/rootdir/etc/fstab.g3
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.g3
 
 # RIL
 BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
 BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
 TARGET_RIL_VARIANT := caf
-
-# NFC
-BOARD_NFC_CHIPSET := pn547
-BOARD_NFC_HAL_SUFFIX := msm8974
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -68,5 +68,5 @@ WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-# inherit from the proprietary version
+# Inherit from the proprietary version
 -include vendor/lge/d852/BoardConfigVendor.mk

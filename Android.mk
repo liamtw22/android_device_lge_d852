@@ -1,5 +1,6 @@
 #
-# Copyright 2014 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,6 +15,7 @@
 # limitations under the License.
 #
 
+#
 # This contains the module build definitions for the hardware-specific
 # components for this device.
 #
@@ -22,10 +24,11 @@
 # bitrot and build breakages. Building a component unconditionally does
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
+#
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter d852,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),d852)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 WCNSS_CFG_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
