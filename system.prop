@@ -1,6 +1,3 @@
-# Bluetooth
-qcom.bluetooth.soc=smd
-
 # Radio
 rild.libpath=/vendor/lib/libril-qc-qmi-1.so
 ro.ril.telephony.mqanelements=4
