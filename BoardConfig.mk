@@ -40,9 +40,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Recovery
 TARGET_RECOVERY_FSTAB := device/lge/d852/rootdir/etc/fstab.g3
 
-# RIL
-TARGET_RIL_VARIANT := caf
-
 # NFC
 BOARD_NFC_CHIPSET := pn547
 BOARD_NFC_HAL_SUFFIX := msm8974
